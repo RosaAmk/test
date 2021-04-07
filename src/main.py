@@ -12,11 +12,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import graphviz as pgv
 import plot
-nb_agent = 500
+nb_agent = 100
 nb_it = 1000
 lifetime = 400
 w = 100
-density = 0.01
+density = 0.1
 class Env():
     def __init__(self):
         self.R1 = nb_agent*nb_it *lifetime/2
@@ -92,7 +92,7 @@ if __name__ == '__main__':
         print(methods[method])
         c2 = Counter()
         c3 = []
-        for j in range(10):
+        for j in range(50):
             i = 0
             for e in np.linspace(-1,1,21):
                 gskills[round(e,1)] = i
@@ -163,4 +163,4 @@ if __name__ == '__main__':
     for k in res.keys():
         data.append(res[k])
         labels.append(methods[k])
-    plot.violin_plots(data, labels, 'Violon plots with density == 0,01 with 500 agents')
+    plot.violin_plots(data, labels, 'Violon plots with density == 0,1 with 100 agents')
