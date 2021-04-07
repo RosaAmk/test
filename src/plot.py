@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Mar 29 21:04:12 2021
-
-@author: gr_am
-"""
+%matplotlib inline
 import matplotlib.pyplot as plt
 import numpy as np
 
