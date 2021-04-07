@@ -9,7 +9,6 @@ from gen_graph import Graph
 import random
 from collections import Counter
 import numpy as np
-import matplotlib.pyplot as plt
 import graphviz as pgv
 import plot
 nb_agent = 100
