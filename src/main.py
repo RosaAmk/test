@@ -92,7 +92,7 @@ if __name__ == '__main__':
         print(methods[method])
         c2 = Counter()
         c3 = []
-        for j in range(10):
+        for j in range(50):
             i = 0
             for e in np.linspace(-1,1,21):
                 gskills[round(e,1)] = i
