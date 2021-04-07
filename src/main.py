@@ -163,4 +163,7 @@ if __name__ == '__main__':
     for k in res.keys():
         data.append(res[k])
         labels.append(methods[k])
+        
+    print(data)
+    print(labels)
     plot.violin_plots(data, labels, 'Violon plots with density == 0,1 with 100 agents')
