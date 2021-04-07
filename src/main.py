@@ -11,7 +11,7 @@ from collections import Counter
 import numpy as np
 import graphviz as pgv
 import plot
-nb_agent = 100
+nb_agent = 500
 nb_it = 1000
 lifetime = 400
 w = 100
@@ -165,4 +165,4 @@ if __name__ == '__main__':
         
     print(data)
     print(labels)
-    plot.violin_plots(data, labels, 'Violon plots with density == 0,1 with 100 agents')
+    plot.violin_plots(data, labels, 'Violon plots with density == 0,1 with 500 agents')
