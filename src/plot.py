@@ -1,6 +1,12 @@
-%matplotlib inline
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Mar 29 21:04:12 2021
+
+@author: gr_am
+"""
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.colors as mcol
 
 def violin_plots(data , labels, title):
     fig,ax=plt.subplots(figsize=(5,5))
@@ -40,18 +46,22 @@ def heatmap_plot(labels_x, labels_y, data , title):
     # We want to show all ticks...
     ax.set_xticks(np.arange(len(labels_x)))
     ax.set_yticks(np.arange(len(labels_y)))
-    # ... and label them with the respective list entries
-    ax.set_xticklabels(labels_x)
-    ax.set_yticklabels(labels_y)
-
-    # Rotate the tick labels and set their alignment.
-    plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
-         rotation_mode="anchor")
     cbar = ax.figure.colorbar(im, ax=ax)
-
 
     ax.set_title(title)
     fig.tight_layout()
     plt.show()
+    
+def chrono_plot( data , title):
+    fig, ax = plt.subplots()
+    cm1 = mcol.LinearSegmentedColormap.from_list("MyCmapName",["r","b"])
+
+    im = ax.imshow(data,  cmap=cm1 , interpolation='nearest', aspect='auto')
+    cbar = ax.figure.colorbar(im, ax=ax)
+
+    ax.set_title(title)
+    fig.tight_layout()
+    plt.show()
+
 
    
