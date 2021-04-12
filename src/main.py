@@ -9,10 +9,9 @@ from gen_graph import Graph
 import random
 from collections import Counter
 import numpy as np
-import matplotlib.pyplot as plt
 import graphviz as pgv
 import plot
-nb_agent = 100
+nb_agent = 500
 nb_it = 1000
 lifetime = 400
 w = 100
@@ -163,4 +162,7 @@ if __name__ == '__main__':
     for k in res.keys():
         data.append(res[k])
         labels.append(methods[k])
-    plot.violin_plots(data, labels, 'Violon plots with density == 0,1 with 100 agents')
+        
+    print(data)
+    print(labels)
+    plot.violin_plots(data, labels, 'Violon plots with density == 0,1 with 500 agents')
