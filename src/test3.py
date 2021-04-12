@@ -145,6 +145,4 @@ def exp(nb_agent):
     plot.violin_plots(data, labels,'Violon plots with density =='+str (density) +' with '+ str (nb_agent )+ ' agents')
 
 if __name__ == '__main__':
-    exp(200)
     exp(300)
-    exp(400)
