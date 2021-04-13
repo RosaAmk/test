@@ -57,7 +57,6 @@ class Agent():
                     self.genomeList = []
                 else:
                     self.g_skill = None
-                self.reactivate()
         def apply_variation_fitness_prop(self):
                 liste = self.genomeList
                 if len(liste)>0:
@@ -73,7 +72,6 @@ class Agent():
                     self.genomeList = []
                 else:
                     self.g_skill = None
-                self.reactivate()
                     
 
         def apply_variation_rank_prop(self):
@@ -92,7 +90,6 @@ class Agent():
                     self.genomeList = []
                 else:
                     self.g_skill = None
-                self.reactivate()
         def apply_variation_fitness(self):
                 liste = self.genomeList
                 if len(liste)>0:
@@ -104,7 +101,6 @@ class Agent():
                     self.genomeList = []
                 else:
                     self.g_skill = None
-                self.reactivate()
         def get_neighbours(self):
             return self.neighbours
                 
