@@ -74,14 +74,15 @@ def gen_chaine(n):
         
 def exp(nb_agent):
     res = dict()
-    methods = ['fitness prop', 'random', 'Best', 'rank prop']
+    methods = ['fitness prop', 'random', 'Elitist', 'rank prop']
     gskills = dict()
 
     for method in range(4):
         print(methods[method])
         c2 = Counter()
         c3 = []
-        for j in range(10):
+        for j in range(50):
+            print(j)
             i = 0
             for e in np.linspace(-1,1,21):
                 gskills[round(e,1)] = i
@@ -92,7 +93,6 @@ def exp(nb_agent):
             c = Counter()
             env = Env()
             for i in range(nb_it):
-                print(i)
                 for k in range(lifetime):
                     env.R1 = nb_agent/2
                     env.R2 = nb_agent/2    
@@ -125,24 +125,14 @@ def exp(nb_agent):
                 if not a.is_stopped() :
                         cpt  += 1
             c3.append(cpt)
-            plot.heatmap_plot(range(nb_it//100) ,gskills.keys(),  gskills_mat , methods[method])
-            plot.chrono_plot( chrono_mat , methods[method]+' '+str(nb_agent))
+            #plot.heatmap_plot(range(nb_it//100) ,gskills.keys(),  gskills_mat , methods[method])
+            #plot.chrono_plot( chrono_mat , methods[method]+' '+str(nb_agent))
 
 
         res[method] = c3
-    
-    data=[]
-    labels=[]
-    
-    with open("results.txt", "w") as fichier:
-        fichier.write(str(nb_agent))
-        for k in res.keys():
-            data.append(res[k])
-            
-            labels.append(methods[k])
-            fichier.write(str(res[k]))
-    
-    plot.violin_plots(data, labels,'Violon plots with density =='+str (density) +' with '+ str (nb_agent )+ ' agents')
+        with open("results.txt"+str(methods[methos]), "w") as fichier:
+            fichier.write(str(nb_agent))
+            fichier.write(str(res[method]))
 
 if __name__ == '__main__':
     exp(300)
