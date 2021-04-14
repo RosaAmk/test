@@ -79,17 +79,13 @@ def exp(nb_agent):
 
     for method in range(2):
         print(methods[method])
-        c2 = Counter()
         c3 = []
         for j in range(20):
             i = 0
             for e in np.linspace(-1,1,21):
                 gskills[round(e,1)] = i
                 i += 1
-            gskills_mat =np.zeros((21,nb_it//100))
             graph,edges = gen_from_density(nb_agent, 2/nb_agent)
-            chrono_mat = np.zeros((nb_agent,nb_it))
-            c = Counter()
             env = Env()
             for i in range(nb_it):
                 for k in range(lifetime):
@@ -111,38 +107,16 @@ def exp(nb_agent):
                         a.apply_variation_fitness()
                     if method == 3:
                         a.apply_variation_rank_prop()
-                    if a.g_skill != None:
-                        chrono_mat[n, i] = round(a.g_skill,1)
-                        #if i%100 == 0:    
-                            #gskills_mat[gskills[round(a.g_skill,1)] , i//100 ] += 1
-
                     n += 1
             cpt = 0   
-            for a in graph:
-                c[a.g_skill] += 1
-                
+            for a in graph:                
                 if not a.is_stopped() :
                         cpt  += 1
             c3.append(cpt)
             print(cpt)
-            #plot.heatmap_plot(range(nb_it//100) ,gskills.keys(),  gskills_mat , methods[method])
-            #plot.chrono_plot( chrono_mat , methods[method]+' '+str(nb_agent))
 
+        print(c3)
 
-        res[method] = c3
-    
-    data=[]
-    labels=[]
-    '''
-    with open("results.txt", "w") as fichier:
-        fichier.write(str(nb_agent))
-        for k in res.keys():
-            data.append(res[k])
-            
-            labels.append(methods[k])
-            fichier.write(str(res[k]))
-    '''
-    #plot.violin_plots(data, labels,'Violon plots with density =='+str (density) +' with '+ str (nb_agent )+ ' agents')
 
 if __name__ == '__main__':
     exp(300)

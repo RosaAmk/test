@@ -147,7 +147,7 @@ class Agent():
             if self.is_stopped():
                 env.R1 -= 0.5
                 env.R2 -= 0.5
-                if if self.wait > 0  or self.listening >0:
+                if self.wait > 0  or self.listening >0:
                     self.charge()
             else :
                 self.energy = max(0 , self.energy-1)
