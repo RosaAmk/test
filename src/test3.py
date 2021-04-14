@@ -77,11 +77,11 @@ def exp(nb_agent):
     methods = ['fitness prop', 'random', 'Best', 'rank prop']
     gskills = dict()
 
-    for method in range(1):
+    for method in range(2):
         print(methods[method])
         c2 = Counter()
         c3 = []
-        for j in range(10):
+        for j in range(20):
             i = 0
             for e in np.linspace(-1,1,21):
                 gskills[round(e,1)] = i
@@ -92,8 +92,6 @@ def exp(nb_agent):
             c = Counter()
             env = Env()
             for i in range(nb_it):
-                for a in graph:
-                    a.reactivate()
                 for k in range(lifetime):
                     env.R1 = nb_agent/2
                     env.R2 = nb_agent/2    
@@ -127,15 +125,15 @@ def exp(nb_agent):
                         cpt  += 1
             c3.append(cpt)
             print(cpt)
-            plot.heatmap_plot(range(nb_it//100) ,gskills.keys(),  gskills_mat , methods[method])
-            plot.chrono_plot( chrono_mat , methods[method]+' '+str(nb_agent))
+            #plot.heatmap_plot(range(nb_it//100) ,gskills.keys(),  gskills_mat , methods[method])
+            #plot.chrono_plot( chrono_mat , methods[method]+' '+str(nb_agent))
 
 
         res[method] = c3
     
     data=[]
     labels=[]
-    
+    '''
     with open("results.txt", "w") as fichier:
         fichier.write(str(nb_agent))
         for k in res.keys():
@@ -143,8 +141,8 @@ def exp(nb_agent):
             
             labels.append(methods[k])
             fichier.write(str(res[k]))
-    
-    plot.violin_plots(data, labels,'Violon plots with density =='+str (density) +' with '+ str (nb_agent )+ ' agents')
+    '''
+    #plot.violin_plots(data, labels,'Violon plots with density =='+str (density) +' with '+ str (nb_agent )+ ' agents')
 
 if __name__ == '__main__':
     exp(300)
